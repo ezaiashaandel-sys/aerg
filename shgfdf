@@ -1,796 +1,612 @@
-
-// ==================== AULA 3 ====================
-
-// Ativ3.12 - Múltiplos de 5 de 1 até 200
+Aqui está todo o código unificado em um único arquivo de Portugol, com comentários (//) identificando cada uma das 20 atividades para você saber exatamente qual é qual!
 programa
 {
-    funcao inicio()
-    {
-        para (inteiro i = 5; i <= 200; i = i + 5)
-        {
-            escreva(i, "\n")
-        }
-    }
+	inclua biblioteca Texto --> t
+
+	// =================================================================
+	// PARTE 1: ATIVIDADES SOBRE VETORES
+	// =================================================================
+
+	// -----------------------------------------------------------------
+	// 1. Ler e exibir pares
+	// Crie um programa que leia N números inteiros, armazene-os em um
+	// vetor e exiba apenas os que são pares, na ordem lida.
+	// -----------------------------------------------------------------
+	funcao exercicio_01()
+	{
+		inteiro n, vetor[100]
+		escreva("\n--- EXERCÍCIO 1: Ler e exibir pares ---\n")
+		escreva("Digite a quantidade de elementos (N): ")
+		leia(n)
+
+		para (inteiro i = 0; i < n; i++)
+		{
+			escreva("Digite o elemento ", i + 1, ": ")
+			leia(vetor[i])
+		}
+
+		escreva("Elementos pares: ")
+		para (inteiro i = 0; i < n; i++)
+		{
+			se (vetor[i] % 2 == 0)
+			{
+				escreva(vetor[i], " ")
+			}
+		}
+		escreva("\n")
+	}
+
+	// -----------------------------------------------------------------
+	// 2. Inverter ordem
+	// Crie um programa que leia N números inteiros, armazene-os em um
+	// vetor e imprima os elementos na ordem inversa.
+	// -----------------------------------------------------------------
+	funcao exercicio_02()
+	{
+		inteiro n, vetor[100]
+		escreva("\n--- EXERCÍCIO 2: Inverter ordem ---\n")
+		escreva("Digite a quantidade de elementos (N): ")
+		leia(n)
+
+		para (inteiro i = 0; i < n; i++)
+		{
+			escreva("Digite o elemento ", i + 1, ": ")
+			leia(vetor[i])
+		}
+
+		escreva("Vetor na ordem inversa: ")
+		para (inteiro i = n - 1; i >= 0; i--)
+		{
+			escreva(vetor[i], " ")
+		}
+		escreva("\n")
+	}
+
+	// -----------------------------------------------------------------
+	// 3. Somar valores
+	// Crie um programa que leia N números inteiros e imprima a soma
+	// de todos os valores lidos.
+	// -----------------------------------------------------------------
+	funcao exercicio_03()
+	{
+		inteiro n, vetor[100], soma = 0
+		escreva("\n--- EXERCÍCIO 3: Somar valores ---\n")
+		escreva("Digite a quantidade de elementos (N): ")
+		leia(n)
+
+		para (inteiro i = 0; i < n; i++)
+		{
+			escreva("Digite o valor ", i + 1, ": ")
+			leia(vetor[i])
+			soma = soma + vetor[i]
+		}
+
+		escreva("A soma de todos os valores é: ", soma, "\n")
+	}
+
+	// -----------------------------------------------------------------
+	// 4. Maior e menor
+	// Crie um programa que leia N números inteiros, armazene-os em um
+	// vetor e mostre o maior e o menor valor.
+	// -----------------------------------------------------------------
+	funcao exercicio_04()
+	{
+		inteiro n, vetor[100], maior, menor
+		escreva("\n--- EXERCÍCIO 4: Maior e menor ---\n")
+		escreva("Digite a quantidade de elementos (N): ")
+		leia(n)
+
+		para (inteiro i = 0; i < n; i++)
+		{
+			escreva("Digite o elemento ", i + 1, ": ")
+			leia(vetor[i])
+		}
+
+		maior = vetor[0]
+		menor = vetor[0]
+
+		para (inteiro i = 1; i < n; i++)
+		{
+			se (vetor[i] > maior) { maior = vetor[i] }
+			se (vetor[i] < menor) { menor = vetor[i] }
+		}
+
+		escreva("Maior valor: ", maior, "\n")
+		escreva("Menor valor: ", menor, "\n")
+	}
+
+	// -----------------------------------------------------------------
+	// 5. Acima da média
+	// Crie um programa que leia N valores reais, calcule a média da
+	// turma e exiba apenas os valores estritamente acima da média.
+	// -----------------------------------------------------------------
+	funcao exercicio_05()
+	{
+		inteiro n
+		real notas[100], soma = 0.0, media
+		escreva("\n--- EXERCÍCIO 5: Acima da média ---\n")
+		escreva("Digite a quantidade de alunos (N): ")
+		leia(n)
+
+		para (inteiro i = 0; i < n; i++)
+		{
+			escreva("Digite a nota do aluno ", i + 1, ": ")
+			leia(notas[i])
+			soma = soma + notas[i]
+		}
+
+		media = soma / n
+		escreva("Média da turma: ", media, "\n")
+		escreva("Notas acima da média: ")
+
+		para (inteiro i = 0; i < n; i++)
+		{
+			se (notas[i] > media)
+			{
+				escreva(notas[i], " ")
+			}
+		}
+		escreva("\n")
+	}
+
+	// -----------------------------------------------------------------
+	// 6. Preencher automático
+	// Crie um programa que leia N, preencha um vetor com a sequência
+	// 1, 2, 3, ..., N e exiba o vetor.
+	// -----------------------------------------------------------------
+	funcao exercicio_06()
+	{
+		inteiro n, vetor[100]
+		escreva("\n--- EXERCÍCIO 6: Preencher automático ---\n")
+		escreva("Digite o valor de N: ")
+		leia(n)
+
+		para (inteiro i = 0; i < n; i++)
+		{
+			vetor[i] = i + 1
+		}
+
+		escreva("Vetor preenchido: ")
+		para (inteiro i = 0; i < n; i++)
+		{
+			escreva(vetor[i], " ")
+		}
+		escreva("\n")
+	}
+
+	// -----------------------------------------------------------------
+	// 7. Contar negativos
+	// Crie um programa que leia N números inteiros e informe quantos
+	// são negativos.
+	// -----------------------------------------------------------------
+	funcao exercicio_07()
+	{
+		inteiro n, vetor[100], qtd_negativos = 0
+		escreva("\n--- EXERCÍCIO 7: Contar negativos ---\n")
+		escreva("Digite a quantidade de elementos (N): ")
+		leia(n)
+
+		para (inteiro i = 0; i < n; i++)
+		{
+			escreva("Digite o elemento ", i + 1, ": ")
+			leia(vetor[i])
+			se (vetor[i] < 0)
+			{
+				qtd_negativos++
+			}
+		}
+
+		escreva("Quantidade de números negativos: ", qtd_negativos, "\n")
+	}
+
+	// -----------------------------------------------------------------
+	// 8. Soma nas posições pares
+	// Crie um programa que leia N números inteiros, armazene-os em um
+	// vetor e some apenas os elementos nas posições de índice par (0, 2, 4...).
+	// -----------------------------------------------------------------
+	funcao exercicio_08()
+	{
+		inteiro n, vetor[100], soma = 0
+		escreva("\n--- EXERCÍCIO 8: Soma nas posições pares ---\n")
+		escreva("Digite a quantidade de elementos (N): ")
+		leia(n)
+
+		para (inteiro i = 0; i < n; i++)
+		{
+			escreva("Digite o elemento no índice ", i, ": ")
+			leia(vetor[i])
+		}
+
+		para (inteiro i = 0; i < n; i = i + 2)
+		{
+			soma = soma + vetor[i]
+		}
+
+		escreva("Soma dos elementos nas posições de índice par: ", soma, "\n")
+	}
+
+	// -----------------------------------------------------------------
+	// 9. Nome mais longo
+	// Crie um programa que leia N nomes (cadeias), armazene-os em um
+	// vetor e mostre o nome com maior quantidade de caracteres.
+	// -----------------------------------------------------------------
+	funcao exercicio_09()
+	{
+		inteiro n
+		cadeia nomes[100], maior_nome = ""
+		escreva("\n--- EXERCÍCIO 9: Nome mais longo ---\n")
+		escreva("Digite a quantidade de nomes (N): ")
+		leia(n)
+
+		para (inteiro i = 0; i < n; i++)
+		{
+			escreva("Digite o nome ", i + 1, ": ")
+			leia(nomes[i])
+
+			se (t.numero_caracteres(nomes[i]) > t.numero_caracteres(maior_nome))
+			{
+				maior_nome = nomes[i]
+			}
+		}
+
+		escreva("O nome mais longo é: ", maior_nome, "\n")
+	}
+
+	// -----------------------------------------------------------------
+	// 10. Ordenar valores
+	// Crie um programa que leia N números inteiros, armazene-os em um
+	// vetor, ordene-os em ordem crescente e exiba o resultado.
+	// -----------------------------------------------------------------
+	funcao exercicio_10()
+	{
+		inteiro n, vetor[100], aux
+		escreva("\n--- EXERCÍCIO 10: Ordenar valores ---\n")
+		escreva("Digite a quantidade de elementos (N): ")
+		leia(n)
+
+		para (inteiro i = 0; i < n; i++)
+		{
+			escreva("Digite o elemento ", i + 1, ": ")
+			leia(vetor[i])
+		}
+
+		// Bubble Sort
+		para (inteiro i = 0; i < n - 1; i++)
+		{
+			para (inteiro j = 0; j < n - 1 - i; j++)
+			{
+				se (vetor[j] > vetor[j + 1])
+				{
+					aux = vetor[j]
+					vetor[j] = vetor[j + 1]
+					vetor[j + 1] = aux
+				}
+			}
+		}
+
+		escreva("Vetor ordenado em ordem crescente: ")
+		para (inteiro i = 0; i < n; i++)
+		{
+			escreva(vetor[i], " ")
+		}
+		escreva("\n")
+	}
+
+	// =================================================================
+	// PARTE 2: FUNÇÕES AUXILIARES DOS EXERCÍCIOS 11 AO 20
+	// =================================================================
+
+	// 11. Função auxiliar
+	funcao inteiro func_maior(inteiro a, inteiro b)
+	{
+		se (a > b) { retorne a }
+		senao { retorne b }
+	}
+
+	// 12. Função auxiliar
+	funcao logico func_eh_par(inteiro n)
+	{
+		retorne (n % 2 == 0)
+	}
+
+	// 13. Função auxiliar
+	funcao cadeia func_obter_situacao(real media)
+	{
+		se (media >= 7.0) { retorne "Aprovado" }
+		senao se (media >= 5.0) { retorne "Recuperação" }
+		senao { retorne "Reprovado" }
+	}
+
+	// 14. Função auxiliar
+	funcao inteiro func_fatorial(inteiro n)
+	{
+		inteiro fat = 1
+		para (inteiro i = 1; i <= n; i++)
+		{
+			fat = fat * i
+		}
+		retorne fat
+	}
+
+	// 15. Função auxiliar
+	funcao inteiro func_mdc(inteiro a, inteiro b)
+	{
+		inteiro resto
+		enquanto (b != 0)
+		{
+			resto = a % b
+			a = b
+			b = resto
+		}
+		retorne a
+	}
+
+	// 16. Função auxiliar
+	funcao logico func_eh_maior_de_idade(inteiro idade)
+	{
+		retorne (idade >= 18)
+	}
+
+	// 17. Função auxiliar
+	funcao logico func_eh_primo(inteiro n)
+	{
+		se (n <= 1) { retorne falso }
+		para (inteiro i = 2; i * i <= n; i++)
+		{
+			se (n % i == 0) { retorne falso }
+		}
+		retorne verdadeiro
+	}
+
+	// 18. Função auxiliar
+	funcao real func_calcular(real a, real b, caracter op)
+	{
+		se (op == '+') { retorne a + b }
+		senao se (op == '-') { retorne a - b }
+		senao se (op == '*') { retorne a * b }
+		senao se (op == '/') 
+		{
+			se (b != 0) { retorne a / b }
+			senao 
+			{
+				escreva("Erro: Divisão por zero!\n")
+				retorne 0.0
+			}
+		}
+		retorne 0.0
+	}
+
+	// 19. Funções auxiliares
+	funcao real func_cParaF(real c) { retorne (c * 9/5) + 32 }
+	funcao real func_fParaC(real f) { retorne (f - 32) * 5/9 }
+
+	// 20. Função auxiliar
+	funcao cadeia func_dia_da_semana(inteiro dia)
+	{
+		escolha (dia)
+		{
+			caso 1: retorne "Domingo"
+			caso 2: retorne "Segunda"
+			caso 3: retorne "Terça"
+			caso 4: retorne "Quarta"
+			caso 5: retorne "Quinta"
+			caso 6: retorne "Sexta"
+			caso 7: retorne "Sábado"
+			caso contrario: retorne "Inválido"
+		}
+	}
+
+	// =================================================================
+	// PARTE 2: ATIVIDADES SOBRE FUNÇÕES (EXECUTÁVEIS)
+	// =================================================================
+
+	// -----------------------------------------------------------------
+	// 11. Maior de dois números
+	// -----------------------------------------------------------------
+	funcao exercicio_11()
+	{
+		inteiro x, y
+		escreva("\n--- EXERCÍCIO 11: Maior de dois números ---\n")
+		escreva("Digite o primeiro número: ")
+		leia(x)
+		escreva("Digite o segundo número: ")
+		leia(y)
+
+		escreva("O maior número é: ", func_maior(x, y), "\n")
+	}
+
+	// -----------------------------------------------------------------
+	// 12. Par ou ímpar
+	// -----------------------------------------------------------------
+	funcao exercicio_12()
+	{
+		inteiro num
+		escreva("\n--- EXERCÍCIO 12: Par ou ímpar ---\n")
+		escreva("Digite um número inteiro: ")
+		leia(num)
+
+		se (func_eh_par(num)) {
+			escreva("O número ", num, " é Par.\n")
+		} senao {
+			escreva("O número ", num, " é Ímpar.\n")
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// 13. Situação do aluno
+	// -----------------------------------------------------------------
+	funcao exercicio_13()
+	{
+		real n1, n2, n3, media
+		escreva("\n--- EXERCÍCIO 13: Situação do aluno ---\n")
+		escreva("Digite as três notas do aluno: ")
+		leia(n1, n2, n3)
+
+		media = (n1 + n2 + n3) / 3.0
+		escreva("Média: ", media, "\n")
+		escreva("Situação: ", func_obter_situacao(media), "\n")
+	}
+
+	// -----------------------------------------------------------------
+	// 14. Fatorial (iterativo)
+	// -----------------------------------------------------------------
+	funcao exercicio_14()
+	{
+		inteiro n
+		escreva("\n--- EXERCÍCIO 14: Fatorial ---\n")
+		escreva("Digite um número não-negativo: ")
+		leia(n)
+
+		escreva("Fatorial de ", n, " é: ", func_fatorial(n), "\n")
+	}
+
+	// -----------------------------------------------------------------
+	// 15. MDC (Euclides)
+	// -----------------------------------------------------------------
+	funcao exercicio_15()
+	{
+		inteiro a, b
+		escreva("\n--- EXERCÍCIO 15: MDC (Euclides) ---\n")
+		escreva("Digite o primeiro valor: ")
+		leia(a)
+		escreva("Digite o segundo valor: ")
+		leia(b)
+
+		escreva("O MDC de ", a, " e ", b, " é: ", func_mdc(a, b), "\n")
+	}
+
+	// -----------------------------------------------------------------
+	// 16. Maioridade
+	// -----------------------------------------------------------------
+	funcao exercicio_16()
+	{
+		inteiro idade
+		escreva("\n--- EXERCÍCIO 16: Maioridade ---\n")
+		escreva("Digite a idade: ")
+		leia(idade)
+
+		se (func_eh_maior_de_idade(idade)) {
+			escreva("Maior de idade\n")
+		} senao {
+			escreva("Menor de idade\n")
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// 17. Número primo
+	// -----------------------------------------------------------------
+	funcao exercicio_17()
+	{
+		inteiro n
+		escreva("\n--- EXERCÍCIO 17: Número primo ---\n")
+		escreva("Digite um número inteiro: ")
+		leia(n)
+
+		se (func_eh_primo(n)) {
+			escreva("Primo\n")
+		} senao {
+			escreva("Não primo\n")
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// 18. Calculadora
+	// -----------------------------------------------------------------
+	funcao exercicio_18()
+	{
+		real a, b
+		caracter op
+		escreva("\n--- EXERCÍCIO 18: Calculadora ---\n")
+		escreva("Digite o primeiro número: ")
+		leia(a)
+		escreva("Digite a operação (+, -, *, /): ")
+		leia(op)
+		escreva("Digite o segundo número: ")
+		leia(b)
+
+		escreva("Resultado: ", func_calcular(a, b, op), "\n")
+	}
+
+	// -----------------------------------------------------------------
+	// 19. Conversão de temperatura (C↔F)
+	// -----------------------------------------------------------------
+	funcao exercicio_19()
+	{
+		real valor
+		caracter tipo
+		escreva("\n--- EXERCÍCIO 19: Conversão de temperatura ---\n")
+		escreva("Digite o valor da temperatura: ")
+		leia(valor)
+		escreva("Digite a unidade de origem (C ou F): ")
+		leia(tipo)
+
+		se (tipo == 'C' ou tipo == 'c') {
+			escreva("Resultado: ", func_cParaF(valor), " °F\n")
+		} senao se (tipo == 'F' ou tipo == 'f') {
+			escreva("Resultado: ", func_fParaC(valor), " °C\n")
+		} senao {
+			escreva("Tipo de unidade inválido!\n")
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// 20. Dia da semana
+	// -----------------------------------------------------------------
+	funcao exercicio_20()
+	{
+		inteiro n
+		escreva("\n--- EXERCÍCIO 20: Dia da semana ---\n")
+		escreva("Digite um número de 1 a 7: ")
+		leia(n)
+
+		escreva("Dia da semana: ", func_dia_da_semana(n), "\n")
+	}
+
+	// =================================================================
+	// FUNÇÃO INICIO: MENU DE EXECUÇÃO
+	// =================================================================
+	funcao inicio()
+	{
+		inteiro opcao
+		faca
+		{
+			escreva("\n============================================\n")
+			escreva("    MENU DE EXERCÍCIOS - AULA 4 PORTUGOL    \n")
+			escreva("============================================\n")
+			escreva("1..10  -> Exercícios de Vetores (1 a 10)\n")
+			escreva("11..20 -> Exercícios de Funções (11 a 20)\n")
+			escreva("0      -> Sair\n")
+			escreva("--------------------------------------------\n")
+			escreva("Escolha qual exercício deseja testar (0-20): ")
+			leia(opcao)
+
+			escolha (opcao)
+			{
+				caso 1: exercicio_01() pare
+				caso 2: exercicio_02() pare
+				caso 3: exercicio_03() pare
+				caso 4: exercicio_04() pare
+				caso 5: exercicio_05() pare
+				caso 6: exercicio_06() pare
+				caso 7: exercicio_07() pare
+				caso 8: exercicio_08() pare
+				caso 9: exercicio_09() pare
+				caso 10: exercicio_10() pare
+				caso 11: exercicio_11() pare
+				caso 12: exercicio_12() pare
+				caso 13: exercicio_13() pare
+				caso 14: exercicio_14() pare
+				caso 15: exercicio_15() pare
+				caso 16: exercicio_16() pare
+				caso 17: exercicio_17() pare
+				caso 18: exercicio_18() pare
+				caso 19: exercicio_19() pare
+				caso 20: exercicio_20() pare
+				caso 0: escreva("\nSaindo... Bons estudos!\n") pare
+				caso contrario: escreva("\nOpção inválida! Escolha um número entre 0 e 20.\n")
+			}
+		} enquanto (opcao != 0)
+	}
 }
 
 
-// Ativ3.13 - 15 primeiros múltiplos de 7
-programa
-{
-    funcao inicio()
-    {
-        para (inteiro i = 1; i <= 15; i++)
-        {
-            escreva(i * 7, "\n")
-        }
-    }
-}
-
-
-// Ativ3.14 - Contar números negativos
-programa
-{
-    funcao inicio()
-    {
-        inteiro numero, negativos = 0
-
-        leia(numero)
-
-        enquanto (numero != 0)
-        {
-            se (numero < 0)
-            {
-                negativos++
-            }
-
-            leia(numero)
-        }
-
-        escreva("Quantidade de números negativos: ", negativos)
-    }
-}
-
-
-// Ativ3.15 - Soma até digitar 0
-programa
-{
-    funcao inicio()
-    {
-        inteiro numero, soma = 0
-
-        leia(numero)
-
-        enquanto (numero != 0)
-        {
-            soma = soma + numero
-            leia(numero)
-        }
-
-        escreva("Soma: ", soma)
-    }
-}
-
-
-// Ativ3.16 - Tabuada de 1 até 10
-programa
-{
-    funcao inicio()
-    {
-        para (inteiro i = 1; i <= 10; i++)
-        {
-            para (inteiro j = 1; j <= 10; j++)
-            {
-                escreva(i, " x ", j, " = ", i * j, "\n")
-            }
-
-            escreva("\n")
-        }
-    }
-}
-
-
-// Ativ3.17 - Pedir senha até estar correta
-programa
-{
-    funcao inicio()
-    {
-        cadeia senha
-
-        leia(senha)
-
-        enquanto (senha != "1234")
-        {
-            leia(senha)
-        }
-
-        escreva("Senha correta!")
-    }
-}
-
-
-// Ativ3.18 - Soma dos pares de 1 até 50
-programa
-{
-    funcao inicio()
-    {
-        inteiro soma = 0
-
-        para (inteiro i = 2; i <= 50; i = i + 2)
-        {
-            soma = soma + i
-        }
-
-        escreva("Soma: ", soma)
-    }
-}
-
-
-// Ativ3.19 - Potência
-programa
-{
-    funcao inicio()
-    {
-        inteiro base, expoente, resultado = 1
-
-        leia(base)
-        leia(expoente)
-
-        para (inteiro i = 1; i <= expoente; i++)
-        {
-            resultado = resultado * base
-        }
-
-        escreva("Resultado: ", resultado)
-    }
-}
-
-
-// Ativ3.20 - Contagem regressiva de 10 até 0
-programa
-{
-    funcao inicio()
-    {
-        para (inteiro i = 10; i >= 0; i--)
-        {
-            escreva(i, "\n")
-        }
-    }
-}
-
-
-// ==================== AULA 4 ====================
-
-// Ativ4.1 - Ler e exibir pares
-programa
-{
-    funcao inicio()
-    {
-        inteiro n
-
-        leia(n)
-
-        inteiro vetor[n]
-
-        para (inteiro i = 0; i < n; i++)
-        {
-            leia(vetor[i])
-        }
-
-        para (inteiro i = 0; i < n; i++)
-        {
-            se (vetor[i] % 2 == 0)
-            {
-                escreva(vetor[i], "\n")
-            }
-        }
-    }
-}
-
-
-// Ativ4.2 - Inverter ordem
-programa
-{
-    funcao inicio()
-    {
-        inteiro n
-
-        leia(n)
-
-        inteiro vetor[n]
-
-        para (inteiro i = 0; i < n; i++)
-        {
-            leia(vetor[i])
-        }
-
-        para (inteiro i = n - 1; i >= 0; i--)
-        {
-            escreva(vetor[i], "\n")
-        }
-    }
-}
-
-
-// Ativ4.3 - Somar valores
-programa
-{
-    funcao inicio()
-    {
-        inteiro n, soma = 0
-
-        leia(n)
-
-        inteiro vetor[n]
-
-        para (inteiro i = 0; i < n; i++)
-        {
-            leia(vetor[i])
-            soma = soma + vetor[i]
-        }
-
-        escreva("Soma: ", soma)
-    }
-}
-
-
-// Ativ4.4 - Maior e menor
-programa
-{
-    funcao inicio()
-    {
-        inteiro n
-
-        leia(n)
-
-        inteiro vetor[n]
-
-        para (inteiro i = 0; i < n; i++)
-        {
-            leia(vetor[i])
-        }
-
-        inteiro maior = vetor[0]
-        inteiro menor = vetor[0]
-
-        para (inteiro i = 1; i < n; i++)
-        {
-            se (vetor[i] > maior)
-            {
-                maior = vetor[i]
-            }
-
-            se (vetor[i] < menor)
-            {
-                menor = vetor[i]
-            }
-        }
-
-        escreva("Maior: ", maior, "\n")
-        escreva("Menor: ", menor)
-    }
-}
-
-
-// Ativ4.5 - Acima da média
-programa
-{
-    funcao inicio()
-    {
-        inteiro n
-        real soma = 0, media
-
-        leia(n)
-
-        real vetor[n]
-
-        para (inteiro i = 0; i < n; i++)
-        {
-            leia(vetor[i])
-            soma = soma + vetor[i]
-        }
-
-        media = soma / n
-
-        para (inteiro i = 0; i < n; i++)
-        {
-            se (vetor[i] > media)
-            {
-                escreva(vetor[i], "\n")
-            }
-        }
-    }
-}
-
-
-// Ativ4.6 - Preencher automaticamente
-programa
-{
-    funcao inicio()
-    {
-        inteiro n
-
-        leia(n)
-
-        inteiro vetor[n]
-
-        para (inteiro i = 0; i < n; i++)
-        {
-            vetor[i] = i + 1
-        }
-
-        para (inteiro i = 0; i < n; i++)
-        {
-            escreva(vetor[i], "\n")
-        }
-    }
-}
-
-
-// Ativ4.7 - Contar negativos
-programa
-{
-    funcao inicio()
-    {
-        inteiro n, negativos = 0
-
-        leia(n)
-
-        inteiro vetor[n]
-
-        para (inteiro i = 0; i < n; i++)
-        {
-            leia(vetor[i])
-
-            se (vetor[i] < 0)
-            {
-                negativos++
-            }
-        }
-
-        escreva("Quantidade de negativos: ", negativos)
-    }
-}
-
-
-// Ativ4.8 - Soma nas posições pares
-programa
-{
-    funcao inicio()
-    {
-        inteiro n, soma = 0
-
-        leia(n)
-
-        inteiro vetor[n]
-
-        para (inteiro i = 0; i < n; i++)
-        {
-            leia(vetor[i])
-        }
-
-        para (inteiro i = 0; i < n; i = i + 2)
-        {
-            soma = soma + vetor[i]
-        }
-
-        escreva("Soma: ", soma)
-    }
-}
-
-
-// Ativ4.9 - Nome mais longo
-programa
-{
-    funcao inicio()
-    {
-        inteiro n
-        cadeia nomes
-
-        leia(n)
-
-        cadeia vetor[n]
-
-        para (inteiro i = 0; i < n; i++)
-        {
-            leia(vetor[i])
-        }
-
-        cadeia maior = vetor[0]
-
-        para (inteiro i = 1; i < n; i++)
-        {
-            se (comprimento(vetor[i]) > comprimento(maior))
-            {
-                maior = vetor[i]
-            }
-        }
-
-        escreva("Nome mais longo: ", maior)
-    }
-}
-
-
-// Ativ4.10 - Ordenar valores
-programa
-{
-    funcao inicio()
-    {
-        inteiro n, temp
-
-        leia(n)
-
-        inteiro vetor[n]
-
-        para (inteiro i = 0; i < n; i++)
-        {
-            leia(vetor[i])
-        }
-
-        para (inteiro i = 0; i < n - 1; i++)
-        {
-            para (inteiro j = i + 1; j < n; j++)
-            {
-                se (vetor[i] > vetor[j])
-                {
-                    temp = vetor[i]
-                    vetor[i] = vetor[j]
-                    vetor[j] = temp
-                }
-            }
-        }
-
-        para (inteiro i = 0; i < n; i++)
-        {
-            escreva(vetor[i], "\n")
-        }
-    }
-}
-
-
-// Ativ4.11 - Maior de dois números
-programa
-{
-    funcao inteiro maior(inteiro a, inteiro b)
-    {
-        se (a > b)
-        {
-            retorne a
-        }
-        senao
-        {
-            retorne b
-        }
-    }
-
-    funcao inicio()
-    {
-        inteiro a, b, resultado
-
-        leia(a)
-        leia(b)
-
-        resultado = maior(a, b)
-
-        escreva("Maior: ", resultado)
-    }
-}
-
-
-// Ativ4.12 - Par ou ímpar
-programa
-{
-    funcao logico par(inteiro n)
-    {
-        retorne n % 2 == 0
-    }
-
-    funcao inicio()
-    {
-        inteiro n
-
-        leia(n)
-
-        se (par(n))
-        {
-            escreva("Par")
-        }
-        senao
-        {
-            escreva("Impar")
-        }
-    }
-}
-
-
-// Ativ4.13 - Situação do aluno
-programa
-{
-    funcao cadeia situacao(real media)
-    {
-        se (media >= 7)
-        {
-            retorne "Aprovado"
-        }
-        senao se (media >= 5)
-        {
-            retorne "Recuperacao"
-        }
-        senao
-        {
-            retorne "Reprovado"
-        }
-    }
-
-    funcao inicio()
-    {
-        real nota1, nota2, nota3, media
-        cadeia resultado
-
-        leia(nota1)
-        leia(nota2)
-        leia(nota3)
-
-        media = (nota1 + nota2 + nota3) / 3
-
-        resultado = situacao(media)
-
-        escreva(resultado)
-    }
-}
-
-
-// Ativ4.14 - Fatorial
-programa
-{
-    funcao inteiro fatorial(inteiro n)
-    {
-        inteiro resultado = 1
-
-        para (inteiro i = 1; i <= n; i++)
-        {
-            resultado = resultado * i
-        }
-
-        retorne resultado
-    }
-
-    funcao inicio()
-    {
-        inteiro n, resultado
-
-        leia(n)
-
-        resultado = fatorial(n)
-
-        escreva(resultado)
-    }
-}
-
-
-// Ativ4.15 - MDC
-programa
-{
-    funcao inteiro mdc(inteiro a, inteiro b)
-    {
-        inteiro resto
-
-        enquanto (b != 0)
-        {
-            resto = a % b
-            a = b
-            b = resto
-        }
-
-        retorne a
-    }
-
-    funcao inicio()
-    {
-        inteiro a, b, resultado
-
-        leia(a)
-        leia(b)
-
-        resultado = mdc(a, b)
-
-        escreva(resultado)
-    }
-}
-
-
-// Ativ4.16 - Maioridade
-programa
-{
-    funcao logico maioridade(inteiro idade)
-    {
-        retorne idade >= 18
-    }
-
-    funcao inicio()
-    {
-        inteiro idade
-
-        leia(idade)
-
-        se (maioridade(idade))
-        {
-            escreva("Maior de idade")
-        }
-        senao
-        {
-            escreva("Menor de idade")
-        }
-    }
-}
-
-
-// Ativ4.17 - Número primo
-programa
-{
-    funcao logico primo(inteiro n)
-    {
-        se (n < 2)
-        {
-            retorne falso
-        }
-
-        para (inteiro i = 2; i < n; i++)
-        {
-            se (n % i == 0)
-            {
-                retorne falso
-            }
-        }
-
-        retorne verdadeiro
-    }
-
-    funcao inicio()
-    {
-        inteiro n
-
-        leia(n)
-
-        se (primo(n))
-        {
-            escreva("Primo")
-        }
-        senao
-        {
-            escreva("Não primo")
-        }
-    }
-}
-
-
-// Ativ4.18 - Calculadora
-programa
-{
-    funcao real calcular(real a, real b, cadeia op)
-    {
-        se (op == "+")
-        {
-            retorne a + b
-        }
-        senao se (op == "-")
-        {
-            retorne a - b
-        }
-        senao se (op == "*")
-        {
-            retorne a * b
-        }
-        senao se (op == "/")
-        {
-            se (b == 0)
-            {
-                escreva("Divisão por zero")
-                retorne 0
-            }
-
-            retorne a / b
-        }
-
-        retorne 0
-    }
-
-    funcao inicio()
-    {
-        real a, b, resultado
-        cadeia op
-
-        leia(a)
-        leia(b)
-        leia(op)
-
-        resultado = calcular(a, b, op)
-
-        escreva(resultado)
-    }
-}
-
-
-// Ativ4.19 - Conversão de temperatura
-programa
-{
-    funcao real cParaF(real c)
-    {
-        retorne (c * 9 / 5) + 32
-    }
-
-    funcao real fParaC(real f)
-    {
-        retorne (f - 32) * 5 / 9
-    }
-
-    funcao inicio()
-    {
-        real valor, resultado
-        cadeia tipo
-
-        leia(valor)
-        leia(tipo)
-
-        se (tipo == "C")
-        {
-            resultado = cParaF(valor)
-            escreva(resultado, " F")
-        }
-        senao
-        {
-            resultado = fParaC(valor)
-            escreva(resultado, " C")
-        }
-    }
-}
-
-
-// Ativ4.20 - Dia da semana
-programa
-{
-    funcao cadeia diaSemana(inteiro n)
-    {
-        se (n == 1)
-        {
-            retorne "Domingo"
-        }
-        senao se (n == 2)
-        {
-            retorne "Segunda"
-        }
-        senao se (n == 3)
-        {
-            retorne "Terca"
-        }
-        senao se (n == 4)
-        {
-            retorne "Quarta"
-        }
-        senao se (n == 5)
-        {
-            retorne "Quinta"
-        }
-        senao se (n == 6)
-        {
-            retorne "Sexta"
-        }
-        senao se (n == 7)
-        {
-            retorne "Sabado"
-        }
-
-        retorne "Invalido"
-    }
-
-    funcao inicio()
-    {
-        inteiro n
-        cadeia resultado
-
-        leia(n)
-
-        resultado = diaSemana(n)
-
-        escreva(resultado)
-    }
-}
