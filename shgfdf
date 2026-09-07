@@ -69,3 +69,52 @@ ativ get e post
 
 </body>
 </html>
+
+
+ativ Inputs 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 6</title>
+</head>
+<body>
+
+<h1> Inputs</h1>
+
+<form>
+
+    <label for="nascimento">Data de nascimento:</label>
+    <input type="date" id="nascimento" name="nascimento">
+
+    <br><br>
+
+    <label for="arquivo">Escolha um arquivo:</label>
+    <input type="file" id="arquivo" name="arquivo">
+
+    <br><br>
+
+    <input type="checkbox" id="termos" name="termos">
+    <label for="termos">Aceito os termos</label>
+
+    <br><br>
+
+    <p>Genero:</p>
+
+    <input type="radio" id="masculino" name="genero" value="masculino">
+    <label for="masculino">Masculino</label>
+
+    <br>
+
+    <input type="radio" id="feminino" name="genero" value="feminino">
+    <label for="feminino">Feminino</label>
+
+    <br><br>
+
+    <button type="submit">Enviar</button>
+
+</form>
+
+</body>
+</html>
