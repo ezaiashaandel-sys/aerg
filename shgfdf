@@ -30,3 +30,42 @@ ativ de senha
 
 </body>
 </html>
+
+ativ get e post
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 5</title>
+</head>
+<body>
+
+<h1>GET</h1>
+
+<form method="get">
+    <label for="nomeGet">Nome:</label>
+    <input type="text" id="nomeGet" name="nome">
+
+    <label for="emailGet">E-mail:</label>
+    <input type="email" id="emailGet" name="email">
+
+    <button type="submit">Enviar </button>
+</form>
+
+<hr>
+
+<h1> POST</h1>
+
+<form method="post">
+    <label for="nomePost">Nome:</label>
+    <input type="text" id="nomePost" name="nome">
+
+    <label for="emailPost">E-mail:</label>
+    <input type="email" id="emailPost" name="email">
+
+    <button type="submit">Enviar </button>
+</form>
+
+</body>
+</html>
